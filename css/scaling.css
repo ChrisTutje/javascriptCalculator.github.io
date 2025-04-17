@@ -1,0 +1,28 @@
+:root {
+    --root: 1.000rem;
+    --minor-second: 1.067rem;
+    --major-second: 1.125rem;
+    --minor-third: 1.200rem;
+    --major-third: 1.250rem;
+    --perfect-forth: 1.333rem;
+    --tritone: 1.414rem;
+    --perfect-fifth: 1.500rem;
+    --minor-sixth: 1.600rem;
+    --major-sixth: 1.667rem;
+    --minor-seventh: 1.750rem;
+    --major-seventh: 1.875rem;
+    --octave: 2.000rem;
+    
+    --eighth: 0.125rem;
+    --quarter: 0.250rem;
+    --third: 0.330rem;
+    --half: 0.500rem;
+    --one-and-a-quarter: 1.250rem;
+    --one-and-a-third: 1.333rem;
+    --one-and-a-half: 1.500rem;
+    --golden-ratio: 1.618rem;
+    --phi: 1.618rem;
+    --double: 2.000rem;
+    --triple: 3.000rem;
+    --quadruple: 4.000rem;
+}

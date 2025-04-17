@@ -1,5 +1,3 @@
-// buttons.js
-
 export function clear() {
     return {
       currentOperand: '',

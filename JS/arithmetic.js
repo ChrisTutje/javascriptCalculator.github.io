@@ -1,17 +1,17 @@
-export function add(a, b) {
-    return a + b;
+export function add(x, y) {
+    return x + y;
   }
   
-  export function subtract(a, b) {
-    return a - b;
+  export function subtract(x, y) {
+    return x - y;
   }
   
-  export function multiply(a, b) {
-    return a * b;
+  export function multiply(x, y) {
+    return x * y;
   }
   
-  export function divide(a, b) {
-    if (b === 0) return "Error: can't divide by zero"; // Avoid division by zero
-    return a / b;
+  export function divide(x, y) {
+    if (y === 0) return "Error: can't divide by zero"; // Avoid division by zero
+    return x / y;
   }
   
