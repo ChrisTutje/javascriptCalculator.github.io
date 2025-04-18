@@ -3,25 +3,17 @@
 @import './scaling.css';
 
 :root {
-    --background-color: #f0f0f0;
-    --background-text-color: hsl(from var(--background-color, #f0f0f0) calc(h + 180) s calc(100 - l));
-    --border-color: var(--background-text-color, #808080);
-    --border-background-color: var(--background-color, #f0f0f0);
-
+    --background-color: var(--viridian);
     --text-color: #333;
-
-    --button-background-color: var(--grey);
-    --button-color: color-mix(in srgb, var(--button-background-color) 50%, black 50%);
+    --button-background-color: var(--silver);
+    --button-color: color-mix(in srgb, var(--button-background-color) 25%, black 75%);
     --button-hover-color: hsl(from var(--button-color) h s calc(l + 20));
     --button-active-color: hsl(from var(--button-color) h s calc(l + 50));
-
     --font-size: 1rem; 
     --button-font-size: var(--font-size, 1rem);
     --line-height: 1.5;
-
     --spacing-unit: 1em;
     --button-padding: calc(var(--spacing-unit, 1em) * 0.786);
-
     --font-family: system-ui, 'Inter', Arial, sans-serif;
 }
 
@@ -48,8 +40,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
-    /* Text sharpening properties */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-smooth: never;
@@ -62,8 +52,8 @@ main {
 }
 
 button {
-    background-color: hsl(from var(--button-background-color) h s l / .75);
-    color: var(--button-color, #000000);
+    color: var(--button-color);
+    background-color: hsl(from var(--button-background-color) h s l / .5);
     border: 1px solid var(--black);
     padding: var(--button-padding);
     font-size: var(--button-font-size);
