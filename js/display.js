@@ -1,11 +1,18 @@
-export function clear() {
-    return {
-      currentOperand: '',
-      previousOperand: '',
-      operation: undefined
-    };
-  }
-  
-  export function deleteCharacter(currentOperand) {
-    return currentOperand.toString().slice(0, -1);
-  }
+const display = document.getElementById("display");
+
+function appendToDisplay(input){
+    display.value += input;
+}
+
+function clearDisplay(){
+    display.value="";
+}
+
+function calculate(){
+    try{
+    display.value = eval(display.value);
+    }
+    catch(error){
+        display.value = "Error"
+    }
+}

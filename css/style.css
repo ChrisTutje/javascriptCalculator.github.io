@@ -3,25 +3,19 @@
 @import './scaling.css';
 
 :root {
-    /* font-size: 16px; */
-
     --background-color: #f0f0f0;
     --background-text-color: hsl(from var(--background-color, #f0f0f0) calc(h + 180) s calc(100 - l));
     --border-color: var(--background-text-color, #808080);
     --border-background-color: var(--background-color, #f0f0f0);
 
     --text-color: #333;
-    --header-color: var(--text-color, #333);
-    --list-color: var(--text-color, #333);
 
     --button-background-color: var(--grey);
     --button-color: color-mix(in srgb, var(--button-background-color) 50%, black 50%);
     --button-hover-color: hsl(from var(--button-color) h s calc(l + 20));
     --button-active-color: hsl(from var(--button-color) h s calc(l + 50));
 
-    --shadow-color: #000000;
-
-    --font-size: 1rem; /* 16px */
+    --font-size: 1rem; 
     --button-font-size: var(--font-size, 1rem);
     --line-height: 1.5;
 
@@ -29,8 +23,6 @@
     --button-padding: calc(var(--spacing-unit, 1em) * 0.786);
 
     --font-family: system-ui, 'Inter', Arial, sans-serif;
-    --header-font: var(--font-family);
-    --list-font: var(--font-family);
 }
 
 * {
@@ -69,10 +61,6 @@ main {
     margin-inline: auto;
 }
 
-header {
-    gap: var(--spacing-unit, 1em);
-}
-
 button {
     background-color: hsl(from var(--button-background-color) h s l / .75);
     color: var(--button-color, #000000);
@@ -102,7 +90,7 @@ button {
     align-content: center; */
 }
 
-#display-window{
+#display{
     width: 100%;
     padding: var(--spacing-unit);
     font-size: var(--font-size);
@@ -120,20 +108,9 @@ button {
     word-break: break-all;
 }
 
-#previous-operand{
-    color: var(--white);
-    font-size: var(--font-size);
-}
-
-#current-operand{
-    color: var(--white);
-    font-size: var(--font-size) * 1.5;
-}
-
 #keys{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* grid-template-rows: minmax(1fr, auto) repeat(6, 1fr); */
     gap: var(--spacing-unit / 2);
     padding: var(--button-padding);
 }
@@ -149,45 +126,7 @@ button {
     color: var(--brick);
 }
 
-.dropdown button {
-    background-color: var(--navbar-dropdown-background-color, #f0f0f0);
-    color: var(--navbar-dropdown-button-color);
-    padding: calc(var(--spacing-unit, 1em) / 1.5) calc(var(--spacing-unit, 1em) * 1);
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown {
-    display: inline-block;
-}
-
-.dropdown a {
-    display: block;
-    color: var(--navbar-dropdown-button-color);
-    text-decoration: none;
-    padding: calc(var(--spacing-unit, 1em) / 1.5) calc(var(--spacing-unit, 1em) * 1);
-}
-
-.dropdown .dropdown-options {
-    display: none;
-    position: absolute;
-    background-color: var(--navbar-dropdown-background-color);
-    min-width: 100px;
-    box-shadow: 2px 2px 5px var(--shadow-color, #000000);
-}
-
-.dropdown:hover .dropdown-options {
-    display: block;
-}
-.dropdown:hover button {
-    background-color: var(--navbar-dropdown-hover-color);
-}
-
-.dropdown a:hover {
-    background-color: var(--navbar-dropdown-hover-color);
-}
-
-@media (max-width: 48em) { /* 768px equivalent */
+@media (max-width: 48em) {
     .column {
         width: 100%;
     }
@@ -195,20 +134,11 @@ button {
     body {
         font-size: calc(var(--font-size, 1rem) * 1);
     }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: calc(var(--font-size, 1rem) * 1.5);
-        margin-bottom: 0.486em;
-    }
 }
 
 @media (max-width: 30em) { /* 480px equivalent */
     body {
         font-size: calc(var(--font-size, 1rem) * 0.875);
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: calc(var(--font-size, 1rem) * 1.272);
     }
 }
 
