@@ -76,8 +76,6 @@ button {
     border-radius: 15px;
     max-width: 500px;
     overflow: hidden;
-    /* justify-content: center;
-    align-content: center; */
 }
 
 #display{
@@ -88,14 +86,6 @@ button {
     border: none;
     background-color: var(--white);
     color: var(--black);
-
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-direction: column;
-    word-wrap: break-word;
-    word-break: break-all;
 }
 
 #keys{
@@ -104,8 +94,6 @@ button {
     gap: var(--spacing-unit / 2);
     padding: var(--button-padding);
 }
-
-/* .digit-btn{} */
 
 .operation-btn{
     color: var(--khaki);
@@ -131,8 +119,3 @@ button {
         font-size: calc(var(--font-size, 1rem) * 0.875);
     }
 }
-
-
-
-
-
