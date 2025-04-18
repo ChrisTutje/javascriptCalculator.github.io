@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Calculator</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/display.js"defer></script>
 </head>
 <style>
 </style>
@@ -12,12 +13,15 @@
 <header>
 </header>
     <div id="calculator">
-        <input id="display" readonly>
+        <input id="display-window" readonly>
+         <!-- <div class="display-window">
+            <div id="previous-operand"></div>
+            <div id="current-operand"></div>
+         </div> -->
         <div id="keys">
+            <button onclick="appendToDisplay('')" class="blank-btn"></button>
+            <button onclick="appendToDisplay('')" class="blank-btn"></button>
             <button onclick="clearDisplay('C')" class="display-btn">C</button>
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
 
 
             <button onclick="appendToDisplay('7')" class="digit-btn">7</button>
@@ -46,9 +50,6 @@
             <button onclick="calculate('=')" class="operation-btn">=</button>
         </div>
     </div>
-
-    <script src="js/display.js">
-    </script>
 </body>
 <footer>
 </footer>
