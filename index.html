@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Calculator</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/display.js" defer></script>
-</head>
-<style>
-</style>
-<body>
-<header>
-</header>
+  </head>
+  <style></style>
+  <body>
+    <header></header>
     <div id="calculator">
-        <input id="display" readonly>
-        <div id="keys">
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
-            <button onclick="clearDisplay('C')" class="display-btn">C</button>
+      <input id="display-window" readonly />
+      <div id="keys">
+        <button onclick="appendToDisplay('')" title="Help" class="blank-btn">?</button>
+        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
+        <button onclick="appendToDisplay('')" title="Delete" class="display-btn"><-</button>
+        <button onclick="clearDisplay('C')" title="Clear" class="display-btn">C</button>
 
+        <button onclick="appendToDisplay('7')" title="Seven" class="digit-btn">7</button>
+        <button onclick="appendToDisplay('8')" title="Eight" class="digit-btn">8</button>
+        <button onclick="appendToDisplay('9')" title="Nine" class="digit-btn">9</button>
+        <button onclick="appendToDisplay('+')" title="Addition" class="operation-btn">+</button>
 
-            <button onclick="appendToDisplay('7')" class="digit-btn">7</button>
-            <button onclick="appendToDisplay('8')" class="digit-btn">8</button>
-            <button onclick="appendToDisplay('9')" class="digit-btn">9</button>
-            <button onclick="appendToDisplay('+')" class="operation-btn">+</button>
+        <button onclick="appendToDisplay('4')" title="Four" class="digit-btn">4</button>
+        <button onclick="appendToDisplay('5')" title="Five" class="digit-btn">5</button>
+        <button onclick="appendToDisplay('6')" title="Six" class="digit-btn">6</button>
+        <button onclick="appendToDisplay('-')" title="Subtraction" class="operation-btn">-</button>
 
-            <button onclick="appendToDisplay('4')" class="digit-btn">4</button>
-            <button onclick="appendToDisplay('5')" class="digit-btn">5</button>
-            <button onclick="appendToDisplay('6')" class="digit-btn">6</button>
-            <button onclick="appendToDisplay('-')" class="operation-btn">-</button>
+        <button onclick="appendToDisplay('1')" title="One" class="digit-btn">1</button>
+        <button onclick="appendToDisplay('2')" title="Two" class="digit-btn">2</button>
+        <button onclick="appendToDisplay('3')" title="Three" class="digit-btn">3</button>
+        <button onclick="appendToDisplay('*')" title="Multiplication" class="operation-btn">*</button>
 
-            <button onclick="appendToDisplay('1')" class="digit-btn">1</button>
-            <button onclick="appendToDisplay('2')" class="digit-btn">2</button>
-            <button onclick="appendToDisplay('3')" class="digit-btn">3</button>
-            <button onclick="appendToDisplay('*')" class="operation-btn">*</button>
+        <button onclick="appendToDisplay('0')" title="Zero" class="digit-btn">0</button>
+        <button onclick="appendToDisplay('.')" title="Decimal">.</button>
+        <button onclick="appendToDisplay('-')" title="Negative">(-)</button>
+        <button onclick="appendToDisplay('/')" title="Natural Division" class="operation-btn">/</button>
 
-            <button onclick="appendToDisplay('0')" class="digit-btn">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="appendToDisplay('-')">(-)</button>
-            <button onclick="appendToDisplay('/')" class="operation-btn">/</button>
-
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
-            <button onclick="appendToDisplay('')" class="blank-btn"></button>
-            <button onclick="calculate('=')" class="operation-btn">=</button>
-        </div>
+        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
+        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
+        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
+        <button onclick="calculate('=')" title="Calculate" class="operation-btn">=</button>
+      </div>
     </div>
-</body>
-<footer>
-</footer>
+  </body>
+  <footer></footer>
 </html>

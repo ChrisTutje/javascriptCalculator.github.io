@@ -1,121 +1,125 @@
-@import './colorPalette.css';
-@import './spacing.css';
-@import './scaling.css';
+@import "./colorPalette.css";
+@import "./spacing.css";
+@import "./scaling.css";
 
 :root {
-    --background-color: var(--viridian);
-    --text-color: #333;
-    --button-background-color: var(--silver);
-    --button-color: color-mix(in srgb, var(--button-background-color) 25%, black 75%);
-    --button-hover-color: hsl(from var(--button-color) h s calc(l + 20));
-    --button-active-color: hsl(from var(--button-color) h s calc(l + 50));
-    --font-size: 1rem; 
-    --button-font-size: var(--font-size, 1rem);
-    --line-height: 1.5;
-    --spacing-unit: 1em;
-    --button-padding: calc(var(--spacing-unit, 1em) * 0.786);
-    --font-family: system-ui, 'Inter', Arial, sans-serif;
+  --background-color: var(--viridian);
+  --text-color: #333;
+  --button-background-color: var(--silver);
+  --button-color: color-mix(
+    in srgb,
+    var(--button-background-color) 25%,
+    black 75%
+  );
+  --button-hover-color: hsl(from var(--button-color) h s calc(l + 20));
+  --button-active-color: hsl(from var(--button-color) h s calc(l + 50));
+  --font-size: 1rem;
+  --button-font-size: var(--font-size, 1rem);
+  --line-height: 1.5;
+  --spacing-unit: 1em;
+  --button-padding: calc(var(--spacing-unit, 1em) * 0.786);
+  --font-family: system-ui, "Inter", Arial, sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-    color-scheme: light dark;
+  scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {
-    background-color: var(--background-color, #f0f0f0);
-    color: var(--background-text-color, #000000);
-    font-family: var(--font-family);
-    font-size: var(--font-size, 1rem);
-    line-height: var(--line-height, 1.5);
-    margin: calc(var(--spacing-unit, 1em) / 2);
-    text-align: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-smooth: never;
-    text-rendering: optimizeLegibility;
+  background-color: var(--background-color, #f0f0f0);
+  color: var(--background-text-color, #000000);
+  font-family: var(--font-family);
+  font-size: var(--font-size, 1rem);
+  line-height: var(--line-height, 1.5);
+  margin: calc(var(--spacing-unit, 1em) / 2);
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  text-rendering: optimizeLegibility;
 }
 
 main {
-    width: min(70ch, 100% - calc(4 * var(--spacing-unit)));
-    margin-inline: auto;
+  width: min(70ch, 100% - calc(4 * var(--spacing-unit)));
+  margin-inline: auto;
 }
 
 button {
-    color: var(--button-color);
-    background-color: hsl(from var(--button-background-color) h s l / .5);
-    border: 1px solid var(--black);
-    padding: var(--button-padding);
-    font-size: var(--button-font-size);
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  color: var(--button-color);
+  background-color: hsl(from var(--button-background-color) h s l / 0.5);
+  border: 1px solid var(--black);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 
-    &:hover {
-        background-color: var(--button-hover-color);
-    }
+  &:hover {
+    background-color: var(--button-hover-color);
+  }
 
-    &:active {
-        background-color: var(--button-active-color);
-    }
+  &:active {
+    background-color: var(--button-active-color);
+  }
 }
 
-#calculator{
-    font-family: var(font-family);
-    background-color: var(--black);
-    border-radius: 15px;
-    max-width: 500px;
-    overflow: hidden;
+#calculator {
+  font-family: var(font-family);
+  background-color: var(--black);
+  border-radius: 15px;
+  max-width: 500px;
+  overflow: hidden;
 }
 
-#display{
-    width: 100%;
-    padding: var(--spacing-unit);
-    font-size: var(--font-size);
-    text-align: left;
-    border: none;
-    background-color: var(--white);
-    color: var(--black);
+#display-window {
+  width: 100%;
+  padding: var(--spacing-unit);
+  font-size: var(--font-size);
+  text-align: left;
+  border: none;
+  background-color: var(--white);
+  color: var(--black);
 }
 
-#keys{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-unit / 2);
-    padding: var(--button-padding);
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-unit / 2);
+  padding: var(--button-padding);
 }
 
-.operation-btn{
-    color: var(--khaki);
+.operation-btn {
+  color: var(--khaki);
 }
 
-.display-btn{
-    grid-column: span 2;
-    color: var(--brick);
+.display-btn {
+  grid-column: span 1;
+  color: var(--brick);
 }
 
 @media (max-width: 48em) {
-    .column {
-        width: 100%;
-    }
+  .column {
+    width: 100%;
+  }
 
-    body {
-        font-size: calc(var(--font-size, 1rem) * 1);
-    }
+  body {
+    font-size: calc(var(--font-size, 1rem) * 1);
+  }
 }
 
-@media (max-width: 30em) { /* 480px equivalent */
-    body {
-        font-size: calc(var(--font-size, 1rem) * 0.875);
-    }
+@media (max-width: 30em) {
+  body {
+    font-size: calc(var(--font-size, 1rem) * 0.875);
+  }
 }

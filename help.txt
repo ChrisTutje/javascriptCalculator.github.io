@@ -1,0 +1,34 @@
+Navigation buttons:
+	[?] help: opens the help menu.
+	[[]] list operator: opens the list operator window. 
+	[""] string operator: opens the string operator window.
+	[C] clear: removes everything from the input field.
+	[=] equal: perform operations form the input field.
+	
+digit buttons: 
+	[0-9] arabic numerals: input base-10 integers. 
+	[.] decimal: convert the input to a decimal.
+	[(-)] negative: convert the input into a negative.
+	
+Operation buttons:
+	[+] addition: add two numbers.
+	[-] subtraction: subtract two numbers.
+	[*] multiplication: multiply two numbers.
+	[/] division: divide two numbers.
+	[//] floor division: divide two numbers, rounded down.
+	[%] modular division: find the remainder of a floor division. 
+	[**] power: raise a number to the power of another number.
+	[-**] reciprocal: find the reciprocal of a number.
+	[!] factorial: find the factorial of a number. 
+	[+!] permutate: a non-standard operation that finds the total permutations of a number. 
+	[√] root: find the custom root of a number.
+	[pf] prime factorization: find the prime factors of a number. 
+	
+Constants:
+	[π] pi: ratio of a cicle's circumference. 
+	[τ] tau: an unimplemented button hidden within the code. It is equal to 2*π  
+	[φ] phi: the golden ratio, used to describe spirals. 
+	[e] euler's constant: used to calculate growth and compound interest. 
+	[O] overflow: The largest positive value that Java can handle. Added for testing purposes, kept for fun. 
+	[U] underflow: The smallest positive decimal value that Java can handle.
+	[∞] infinity: The closest approximation of positive infinity that Java can handle. Don't factorial it. 
