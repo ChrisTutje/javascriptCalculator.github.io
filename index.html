@@ -13,35 +13,93 @@
     <div id="calculator">
       <input id="display-window" readonly />
       <div id="keys">
-        <button onclick="appendToDisplay('')" title="Help" class="blank-btn">?</button>
-        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
-        <button onclick="appendToDisplay('')" title="Delete" class="display-btn"><-</button>
-        <button onclick="clearDisplay('C')" title="Clear" class="display-btn">C</button>
+        <button onclick="" title="Help" class="ui-btn">?</button>
+        <button onclick="" title="Menu" class="ui-btn">≡</button>
+        <button onclick="" title="Delete" class="display-btn">⌫</button>
+        <button onclick="clearDisplay()" title="Clear" class="display-btn">C</button>
+        <button onclick="calculate('=')" title="Calculate" class="operation-btn">=</button>
+        <button onclick="" title="" class="blank-btn"></button>
+        <button onclick="" title="" class="blank-btn"></button>
 
         <button onclick="appendToDisplay('7')" title="Seven" class="digit-btn">7</button>
         <button onclick="appendToDisplay('8')" title="Eight" class="digit-btn">8</button>
         <button onclick="appendToDisplay('9')" title="Nine" class="digit-btn">9</button>
         <button onclick="appendToDisplay('+')" title="Addition" class="operation-btn">+</button>
+        <button onclick="" title="Succession" class="operation-btn">SUCC</button>
+        <button onclick="" title="Increment" class="operation-btn">+=</button>
+        <button onclick="" title="Permutate" class="operation-btn">+!</button>
 
         <button onclick="appendToDisplay('4')" title="Four" class="digit-btn">4</button>
         <button onclick="appendToDisplay('5')" title="Five" class="digit-btn">5</button>
         <button onclick="appendToDisplay('6')" title="Six" class="digit-btn">6</button>
         <button onclick="appendToDisplay('-')" title="Subtraction" class="operation-btn">-</button>
+        <button onclick="" title="Predecession" class="operation-btn">PRED</button>
+        <button onclick="" title="Decrement" class="operation-btn">-=</button>
+        <button onclick="" title="?" class="operation-btn">-!</button>
 
         <button onclick="appendToDisplay('1')" title="One" class="digit-btn">1</button>
         <button onclick="appendToDisplay('2')" title="Two" class="digit-btn">2</button>
         <button onclick="appendToDisplay('3')" title="Three" class="digit-btn">3</button>
         <button onclick="appendToDisplay('*')" title="Multiplication" class="operation-btn">*</button>
+        <button onclick="" title="Floor Division" class="operation-btn">//</button>
+        <button onclick="" title="Augment" class="operation-btn">*=</button>
+        <button onclick="" title="Factorial" class="operation-btn">!</button>
 
         <button onclick="appendToDisplay('0')" title="Zero" class="digit-btn">0</button>
         <button onclick="appendToDisplay('.')" title="Decimal">.</button>
         <button onclick="appendToDisplay('-')" title="Negative">(-)</button>
         <button onclick="appendToDisplay('/')" title="Natural Division" class="operation-btn">/</button>
+        <button onclick="" title="Modular Division" class="operation-btn">%</button>
+        <button onclick="" title="Diminish" class="operation-btn">/=</button>
+        <button onclick="" title="?" class="operation-btn">/!</button>
 
-        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
-        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
-        <button onclick="appendToDisplay('')" title="" class="blank-btn"></button>
-        <button onclick="calculate('=')" title="Calculate" class="operation-btn">=</button>
+        <button onclick="" title="Sine" class="constant-btn">sin(</button>
+        <button onclick="" title="Cosine" class="constant-btn">cos(</button>
+        <button onclick="" title="Tangent" class="constant-btn">tan(</button>
+        <button onclick="" title="Square" class="operation-btn">²</button>
+        <button onclick="" title="Cube" class="operation-btn">³</button>
+        <button onclick="" title="Exponent" class="operation-btn">**</button>
+        <button onclick="" title="Reciprocal" class="operation-btn">⁻¹</button>
+
+        <button onclick="" title="Logarithm" class="constant-btn">log(</button>
+        <button onclick="" title="?" class="constant-btn">ln(</button>
+        <button onclick="" title="Euler's Constant" class="constant-btn">e</button>
+        <button onclick="" title="Square Root" class="operation-btn">√</button>
+        <button onclick="" title="Cube Root" class="operation-btn">∛</button>
+        <button onclick="" title="Root" class="operation-btn">√x</button>
+        <button onclick="" title="" class="blank-btn"></button>
+
+        <button onclick="" title="Pi" class="constant-btn">π</button>
+        <button onclick="" title="Tau" class="constant-btn">τ</button>
+        <button onclick="" title="Phi" class="constant-btn">φ</button>
+        <button onclick="" title="Tetration" class="operation-btn">↑↑</button>
+        <button onclick="" title="Super Log" class="operation-btn">Slog</button>
+        <button onclick="" title="Double" class="operation-btn">×2</button>
+        <button onclick="" title="Triple" class="operation-btn">×3</button>
+
+        <button onclick="" title="Imaginary Number" class="constant-btn">i</button>
+        <button onclick="" title="Square Root of Two" class="constant-btn">√2</button>
+        <button onclick="" title="Theta" class="constant-btn">θ</button>
+        <button onclick="" title="Prime Factorization" class="operation-btn">PF</button>
+        <button onclick="" title="Tip" class="operation-btn">15%</button>
+        <button onclick="" title="Halve" class="operation-btn">½</button>
+        <button onclick="" title="Quarter" class="operation-btn">¼</button>
+
+        <button onclick="" title="Underflow Value" class="constant-btn">UF</button>
+        <button onclick="" title="Overflow Value" class="constant-btn">OF</button>
+        <button onclick="" title="Infinity" class="constant-btn">∞</button>
+        <button onclick="" title="Round" class="operation-btn">rnd(</button>
+        <button onclick="" title="Floor" class="operation-btn">flr(</button>
+        <button onclick="" title="Ceiling" class="operation-btn">ceil(</button>
+        <button onclick="" title="Precision" class="operation-btn">pre(</button>
+
+        <button onclick="" title="Speed of Light" class="constant-btn">C</button>
+        <button onclick="" title="" class="blank-btn"></button>
+        <button onclick="" title="" class="blank-btn"></button>
+        <button onclick="" title="Absolute Value" class="operation-btn">abs(</button>
+        <button onclick="" title="" class="blank-btn"></button>
+        <button onclick="" title="" class="blank-btn"></button>
+        <button onclick="" title="" class="blank-btn"></button>
       </div>
     </div>
   </body>
