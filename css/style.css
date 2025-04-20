@@ -30,6 +30,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light dark;
+  overflow-x: auto;
 }
 
 body {
@@ -42,12 +43,14 @@ body {
   text-align: left;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: start;
+  min-height: 100vh;
+  padding: var(--spacing-unit);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: never;
   text-rendering: optimizeLegibility;
+  overflow-x: auto;
 }
 
 main {
@@ -78,13 +81,14 @@ button {
   font-family: var(font-family);
   background-color: var(--black);
   border-radius: 15px;
-  /* min-width: 500px; */
-  max-width: 100vh;
+  min-width: 420px;
+  max-width: 100%;
   overflow: hidden;
   width: fit-content;
   margin: auto;
   padding: var(--spacing-unit);
   box-sizing: border-box;
+  overflow-x: auto;
 }
 
 #display-window {
@@ -102,7 +106,7 @@ button {
 
 #keys {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(60px, 1fr));
   gap: var(--spacing-unit / 2);
   padding: var(--button-padding);
   min-width: 420px;
