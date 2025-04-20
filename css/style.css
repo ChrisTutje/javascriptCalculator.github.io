@@ -78,9 +78,10 @@ button {
   font-family: var(font-family);
   background-color: var(--black);
   border-radius: 15px;
-  max-width: 500px;
+  /* min-width: 500px; */
+  max-width: 100vh;
   overflow: hidden;
-  width: 100%;
+  width: fit-content;
   margin: auto;
   padding: var(--spacing-unit);
   box-sizing: border-box;
@@ -88,6 +89,7 @@ button {
 
 #display-window {
   width: 100%;
+  min-width: 240px;
   padding: var(--spacing-unit);
   font-size: var(--font-size);
   text-align: left;
@@ -103,6 +105,8 @@ button {
   grid-template-columns: repeat(7, 1fr);
   gap: var(--spacing-unit / 2);
   padding: var(--button-padding);
+  min-width: 420px;
+  max-width: 700px;
 }
 
 .operation-btn {
