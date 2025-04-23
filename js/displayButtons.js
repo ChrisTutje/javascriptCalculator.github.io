@@ -1,4 +1,5 @@
-import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root  } from './arithmeticButtons.js'; 
+import { E } from './constants.js';
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -60,6 +61,11 @@ export function inputDigit(digit) {
   updateOperationDisplay();
 }
 
+export function inputConstant(constantValue) {
+  currentInput = constantValue.toString();
+  updateDisplay(currentInput);
+}
+
 export function clearDisplay() {
   currentInput = '';
   previousValue = null;
@@ -109,7 +115,10 @@ function calculate() {  //Calculate()
         selectedOperation === cube ? 'cube' : 
         selectedOperation === squareRoot ? '√' :
         selectedOperation === cubeRoot ? '∛' :
-        selectedOperation === root ? 'root' : ''
+        selectedOperation === root ? 'root' : 
+        selectedOperation === sine ? 'sin' :
+        selectedOperation === cosine ? 'cos' :
+        selectedOperation === tangent ? 'tan' : ''
       }(${inputValue}) =`;
       updateDisplay(result);
       currentInput = result.toString();
@@ -142,7 +151,10 @@ function calculate() {  //Calculate()
       selectedOperation === multiply ? '×' :
       selectedOperation === divide ? '÷' :
       selectedOperation === floorDivide ? '//' :
-      selectedOperation === modulo ? '%' : ''
+      selectedOperation === modulo ? '%' : 
+      selectedOperation === sine ? 'sin' :
+  selectedOperation === cosine ? 'cos' :
+  selectedOperation === tangent ? 'tan' : ''
     } ${secondValue} =`;
     
     updateDisplay(result);
@@ -161,12 +173,18 @@ export function toggleNegative() {
   updateDisplay(currentInput);
 }
 
-document.getElementById('keys').addEventListener('click', (event) => { //Click Handler
+document.getElementById('keys').addEventListener('click', (event) => { //Click Listener
   const button = event.target.closest('button');
   if (!button) return;
 
   if (button.classList.contains('digit-btn')) {
     inputDigit(button.textContent);
+  }
+  else if (button.classList.contains('constant-btn')) {
+    switch (button.textContent) {
+      case 'e': inputConstant(E); break;
+      
+    }
   }
   else if (button.classList.contains('operation-btn')) {
     switch (button.textContent) {
@@ -189,6 +207,9 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case '√': chooseOperation(squareRoot); break;
       case '∛': chooseOperation(cubeRoot); break;
       case '√x': chooseOperation(root); break;
+      case 'sin': chooseOperation(sine); break;
+      case 'cos': chooseOperation(cosine); break;
+      case 'tan': chooseOperation(tangent); break;
       case '=': calculate(); break;
     }
   }

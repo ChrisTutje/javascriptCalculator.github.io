@@ -105,3 +105,17 @@ export function root(x, y) {
   if (y === 0) throw new Error("Zero root undefined");
   return Math.pow(x, 1/y);
 }
+
+export function sine(x) {
+  return Math.sin(x); 
+}
+
+export function cosine(x) {
+  return Math.cos(x); 
+}
+
+export function tangent(x) {
+  const result = Math.tan(x);
+  if (!Number.isFinite(result)) throw new Error("Undefined tangent");
+  return result;
+}
