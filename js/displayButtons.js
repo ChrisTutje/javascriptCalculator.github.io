@@ -1,4 +1,4 @@
-import { succession, predecession, add, subtract, multiply, divide } from './arithmeticButtons.js';
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -12,15 +12,26 @@ function updateDisplay(value) {
   displayWindow.value = value;
 }
 
-function updateOperationDisplay() {
+function updateOperationDisplay() { //UpdateOperationDisplay()
   if (selectedOperation) {
     const operator = 
-      selectedOperation === succession ? 'SUCC' :
-      selectedOperation === predecession ? 'PRED' :
-      selectedOperation === add ? '+' :
-      selectedOperation === subtract ? '-' :
-      selectedOperation === multiply ? '×' :
-      selectedOperation === divide ? '÷' : '';
+    selectedOperation === succession ? 'SUCC' :
+    selectedOperation === predecession ? 'PRED' :
+    selectedOperation === add ? '+' :
+    selectedOperation === subtract ? '-' :
+    selectedOperation === multiply ? '×' :
+    selectedOperation === divide ? '÷' :
+    selectedOperation === floorDivide ? '//' :
+    selectedOperation === modulo ? '%' :
+    selectedOperation === factorial ? '!' :
+    selectedOperation === permutation ? '+!' :
+    selectedOperation === subfactorial ? '-!' :
+    selectedOperation === harmonicFactorial ? '/!' : 
+    selectedOperation === exponent ? '**' :
+    selectedOperation === reciprocal ? '⁻¹' :
+    selectedOperation === square ? '²' :
+    selectedOperation === cube ? '³' : '';
+    
     
     if (selectedOperation.length === 1) {
       operationDisplay.textContent = `${operator}(${previousValue || '0'})`;
@@ -63,28 +74,36 @@ export function deleteLast() {
 function chooseOperation(opFunc) {
   if (currentInput === '' && previousValue === null) return;
   
-  // If we have new input, store it as previousValue
   if (currentInput !== '') {
     previousValue = parseFloat(currentInput);
-    currentInput = ''; // Clear current input after storing
+    currentInput = ''; 
   }
   
   selectedOperation = opFunc;
-  updateDisplay(''); // Clear the main display
-  updateOperationDisplay(); // Update the operation display
+  updateDisplay(''); 
+  updateOperationDisplay(); 
 }
 
-function calculate() {
+function calculate() {  //Calculate()
   if (!selectedOperation) return;
 
-  if (selectedOperation.length === 1) {
+  if (selectedOperation.length === 1) { //Unary Operations
     try {
       const inputValue = currentInput ? parseFloat(currentInput) : previousValue;
       if (isNaN(inputValue)) return;
       
       const result = selectedOperation(inputValue);
       operationDisplay.textContent = `${
-        selectedOperation === succession ? 'SUCC' : 'PRED'
+        selectedOperation === succession ? 'SUCC' : 
+        selectedOperation === predecession ? 'PRED' :
+        selectedOperation === factorial ? 'factorial' :
+        selectedOperation === permutation ? 'permutation' :
+        selectedOperation === subfactorial ? 'subfactorial' :
+        selectedOperation === harmonicFactorial ? 'harmonicFactorial' : 
+        selectedOperation === exponent ? '**' :
+        selectedOperation === reciprocal ? '⁻¹' :
+        selectedOperation === square ? 'square' :
+        selectedOperation === cube ? 'cube' : ''
       }(${inputValue}) =`;
       updateDisplay(result);
       currentInput = result.toString();
@@ -111,11 +130,13 @@ function calculate() {
       previousSecondValue = parseFloat(currentInput);
     }
     
-    operationDisplay.textContent = `${previousValue} ${
+    operationDisplay.textContent = `${previousValue} ${  //Operation Display
       selectedOperation === add ? '+' :
       selectedOperation === subtract ? '-' :
       selectedOperation === multiply ? '×' :
-      selectedOperation === divide ? '÷' : ''
+      selectedOperation === divide ? '÷' :
+      selectedOperation === floorDivide ? '//' :
+      selectedOperation === modulo ? '%' : ''
     } ${secondValue} =`;
     
     updateDisplay(result);
@@ -134,7 +155,7 @@ export function toggleNegative() {
   updateDisplay(currentInput);
 }
 
-document.getElementById('keys').addEventListener('click', (event) => {
+document.getElementById('keys').addEventListener('click', (event) => { //Click Handler
   const button = event.target.closest('button');
   if (!button) return;
 
@@ -143,12 +164,22 @@ document.getElementById('keys').addEventListener('click', (event) => {
   }
   else if (button.classList.contains('operation-btn')) {
     switch (button.textContent) {
+      case 'SUCC': chooseOperation(succession); break;
+      case 'PRED': chooseOperation(predecession); break;
       case '+': chooseOperation(add); break;
       case '-': chooseOperation(subtract); break;
       case '*': chooseOperation(multiply); break;
       case '/': chooseOperation(divide); break;
-      case 'SUCC': chooseOperation(succession); break;
-      case 'PRED': chooseOperation(predecession); break;
+      case '//': chooseOperation(floorDivide); break;
+      case '%': chooseOperation(modulo); break;
+      case '!': chooseOperation(factorial); break;
+      case '+!': chooseOperation(permutation); break;
+      case '-!': chooseOperation(subfactorial); break;
+      case '/!': chooseOperation(harmonicFactorial); break;
+      case '**': chooseOperation(exponent); break;
+      case '⁻¹': chooseOperation(reciprocal); break;
+      case '²': chooseOperation(square); break;
+      case '³': chooseOperation(cube); break;
       case '=': calculate(); break;
     }
   }

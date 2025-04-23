@@ -30,7 +30,7 @@
         <button onclick="chooseOperation(add)" title="Addition" class="operation-btn">+</button>
         <button onclick="chooseOperation(succession)" title="Succession" class="operation-btn">SUCC</button>
         <button onclick="" title="Increment" class="operation-btn">+=</button>
-        <button onclick="" title="Permutate" class="operation-btn">+!</button>
+        <button onclick="chooseOperation(permutate)" title="Permutate" class="operation-btn">+!</button>
 
         <button onclick="inputDigit('4')" title="Four" class="digit-btn">4</button>
         <button onclick="inputDigit('5')" title="Five" class="digit-btn">5</button>
@@ -38,7 +38,7 @@
         <button onclick="chooseOperation(subtract)" title="Subtraction" class="operation-btn">-</button>
         <button onclick="chooseOperation(predecession)" title="Predecession" class="operation-btn">PRED</button>
         <button onclick="" title="Decrement" class="operation-btn">-=</button>
-        <button onclick="" title="?" class="operation-btn">-!</button>
+        <button onclick="chooseOperation(subFactorial)" title="Subfactorial" class="operation-btn">-!</button>
 
         <button onclick="inputDigit('1')" title="One" class="digit-btn">1</button>
         <button onclick="inputDigit('2')" title="Two" class="digit-btn">2</button>
@@ -46,23 +46,23 @@
         <button onclick="chooseOperation(multiply)" title="Multiplication" class="operation-btn">*</button>
         <button onclick="" title="Floor Division" class="operation-btn">//</button>
         <button onclick="" title="Augment" class="operation-btn">*=</button>
-        <button onclick="" title="Factorial" class="operation-btn">!</button>
+        <button onclick="chooseOperation(factorial)" title="Factorial" class="operation-btn">!</button>
 
         <button onclick="inputDigit('0')" title="Zero" class="digit-btn">0</button>
         <button onclick="inputDigit('.')" title="Decimal" class="digit-btn">.</button>
         <button onclick="inputDigit('-')" title="Negative">(-)</button>
         <button onclick="chooseOperation(divide)" title="Natural Division" class="operation-btn">/</button>
-        <button onclick="" title="Modular Division" class="operation-btn">%</button>
+        <button onclick="chooseOperation(modulo)" title="Modular Division" class="operation-btn">%</button>
         <button onclick="" title="Diminish" class="operation-btn">/=</button>
-        <button onclick="" title="?" class="operation-btn">/!</button>
+        <button onclick="chooseOperation(harmonicFactorial)" title="Harmonic Factorial" class="operation-btn">/!</button>
 
-        <!-- <button onclick="" title="Sine" class="constant-btn">sin(</button>
+        <button onclick="" title="Sine" class="constant-btn">sin(</button>
         <button onclick="" title="Cosine" class="constant-btn">cos(</button>
         <button onclick="" title="Tangent" class="constant-btn">tan(</button>
-        <button onclick="" title="Square" class="operation-btn">²</button>
-        <button onclick="" title="Cube" class="operation-btn">³</button>
-        <button onclick="" title="Exponent" class="operation-btn">**</button>
-        <button onclick="" title="Reciprocal" class="operation-btn">⁻¹</button> -->
+        <button onclick="chooseOperation(exponent)" title="Exponent" class="operation-btn">**</button>
+        <button onclick="chooseOperation(reciprocal)" title="Reciprocal" class="operation-btn">⁻¹</button>
+        <button onclick="chooseOperation(square)" title="Square" class="operation-btn">²</button>
+        <button onclick="chooseOperation(cube)" title="Cube" class="operation-btn">³</button>
 
         <!-- <button onclick="" title="Logarithm" class="constant-btn">log(</button>
         <button onclick="" title="Natural Logarithm" class="constant-btn">ln(</button>
