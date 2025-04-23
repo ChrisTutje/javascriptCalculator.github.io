@@ -90,3 +90,18 @@ export function square(x) {
 export function cube(x) {
   return x * x * x;
 }
+
+export function squareRoot(x) {
+  if (x < 0) throw new Error("Negative number");
+  return Math.sqrt(x);
+}
+
+export function cubeRoot(x) {
+  return Math.cbrt(x); 
+}
+
+export function root(x, y) {
+  if (x < 0 && y % 2 === 0) throw new Error("Even root of negative number");
+  if (y === 0) throw new Error("Zero root undefined");
+  return Math.pow(x, 1/y);
+}

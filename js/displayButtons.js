@@ -1,4 +1,4 @@
-import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube  } from './arithmeticButtons.js'; 
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -30,7 +30,10 @@ function updateOperationDisplay() { //UpdateOperationDisplay()
     selectedOperation === exponent ? '**' :
     selectedOperation === reciprocal ? '⁻¹' :
     selectedOperation === square ? '²' :
-    selectedOperation === cube ? '³' : '';
+    selectedOperation === cube ? '³' : 
+    selectedOperation === squareRoot ? '√' :
+    selectedOperation === cubeRoot ? '∛' :
+    selectedOperation === root ? 'root' : '';
     
     
     if (selectedOperation.length === 1) {
@@ -103,7 +106,10 @@ function calculate() {  //Calculate()
         selectedOperation === exponent ? '**' :
         selectedOperation === reciprocal ? '⁻¹' :
         selectedOperation === square ? 'square' :
-        selectedOperation === cube ? 'cube' : ''
+        selectedOperation === cube ? 'cube' : 
+        selectedOperation === squareRoot ? '√' :
+        selectedOperation === cubeRoot ? '∛' :
+        selectedOperation === root ? 'root' : ''
       }(${inputValue}) =`;
       updateDisplay(result);
       currentInput = result.toString();
@@ -180,6 +186,9 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case '⁻¹': chooseOperation(reciprocal); break;
       case '²': chooseOperation(square); break;
       case '³': chooseOperation(cube); break;
+      case '√': chooseOperation(squareRoot); break;
+      case '∛': chooseOperation(cubeRoot); break;
+      case '√x': chooseOperation(root); break;
       case '=': calculate(); break;
     }
   }
