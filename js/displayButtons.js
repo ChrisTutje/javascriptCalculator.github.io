@@ -1,8 +1,9 @@
-import { succession, add, subtract, multiply, divide } from './arithmeticButtons.js';
+import { succession, predecession, add, subtract, multiply, divide } from './arithmeticButtons.js';
 
 let currentInput = '';
 let previousValue = null;
 let selectedOperation = null;
+let previousSecondValue = null;
 
 const operationDisplay = document.getElementById("operation-display");
 const displayWindow = document.getElementById("display-window");
@@ -15,19 +16,19 @@ function updateOperationDisplay() {
   if (selectedOperation) {
     const operator = 
       selectedOperation === succession ? 'SUCC' :
+      selectedOperation === predecession ? 'PRED' :
       selectedOperation === add ? '+' :
       selectedOperation === subtract ? '-' :
       selectedOperation === multiply ? '×' :
       selectedOperation === divide ? '÷' : '';
     
     if (selectedOperation.length === 1) {
-      const displayValue = previousValue !== null ? previousValue : currentInput || '0';
-      operationDisplay.textContent = `${operator}(${displayValue})`;
+      operationDisplay.textContent = `${operator}(${previousValue || '0'})`;
     } 
     else {
-      if (previousValue !== null) {
-        operationDisplay.textContent = `${previousValue} ${operator}`;
-      }
+      operationDisplay.textContent = previousValue !== null 
+        ? `${previousValue} ${operator}`
+        : '';
     }
   } else {
     operationDisplay.textContent = '';
@@ -35,16 +36,21 @@ function updateOperationDisplay() {
 }
 
 export function inputDigit(digit) {
-  if (digit === '.' && currentInput.includes('.')) return;
-  currentInput += digit;
+  if (digit === '.') {
+    if (currentInput === '') currentInput = '0.';
+    else if (!currentInput.includes('.')) currentInput += '.';
+  } else {
+    currentInput += digit;
+  }
   updateDisplay(currentInput);
   updateOperationDisplay();
 }
 
-function clearDisplay() {
+export function clearDisplay() {
   currentInput = '';
   previousValue = null;
   selectedOperation = null;
+  previousSecondValue = null;
   operationDisplay.textContent = '';
   updateDisplay('');
 }
@@ -55,47 +61,68 @@ export function deleteLast() {
 }
 
 function chooseOperation(opFunc) {
-  if (currentInput === '') return;
-  previousValue = parseFloat(currentInput);
+  if (currentInput === '' && previousValue === null) return;
+  
+  // If we have new input, store it as previousValue
+  if (currentInput !== '') {
+    previousValue = parseFloat(currentInput);
+    currentInput = ''; // Clear current input after storing
+  }
+  
   selectedOperation = opFunc;
-  currentInput = '';
-  updateOperationDisplay();
-  updateDisplay('');
+  updateDisplay(''); // Clear the main display
+  updateOperationDisplay(); // Update the operation display
 }
 
 function calculate() {
-  if (selectedOperation) {
+  if (!selectedOperation) return;
+
+  if (selectedOperation.length === 1) {
     try {
-      let result;
-      const currentValue = parseFloat(currentInput);
+      const inputValue = currentInput ? parseFloat(currentInput) : previousValue;
+      if (isNaN(inputValue)) return;
       
-      // Handle unary operations (like succession)
-      if (selectedOperation.length === 1) {
-        result = selectedOperation(previousValue || currentValue);
-        operationDisplay.textContent = `${selectedOperation === succession ? 'SUCC' : ''}(${previousValue || currentValue}) =`;
-      } 
-      // Handle binary operations
-      else {
-        if (isNaN(previousValue)) return;
-        result = selectedOperation(previousValue, currentValue);
-        operationDisplay.textContent = `${previousValue} ${
-          selectedOperation === add ? '+' :
-          selectedOperation === subtract ? '-' :
-          selectedOperation === multiply ? '×' :
-          '÷'
-        } ${currentValue} =`;
-      }
-      
+      const result = selectedOperation(inputValue);
+      operationDisplay.textContent = `${
+        selectedOperation === succession ? 'SUCC' : 'PRED'
+      }(${inputValue}) =`;
       updateDisplay(result);
       currentInput = result.toString();
-      previousValue = null;
-      selectedOperation = null;
+      previousValue = result;
     } catch (err) {
-      console.error("Calculation error:", err);
-      operationDisplay.textContent = '';
-      updateDisplay("Error");
-      currentInput = '';
+      handleError(err);
     }
+    return;
+  }
+
+  if (previousValue === null && currentInput) {
+    previousValue = parseFloat(currentInput);
+    currentInput = '';
+    return;
+  }
+
+  const secondValue = currentInput ? parseFloat(currentInput) : previousSecondValue;
+  if (!secondValue && secondValue !== 0) return;
+
+  try {
+    const result = selectedOperation(previousValue, secondValue);
+    
+    if (currentInput) {
+      previousSecondValue = parseFloat(currentInput);
+    }
+    
+    operationDisplay.textContent = `${previousValue} ${
+      selectedOperation === add ? '+' :
+      selectedOperation === subtract ? '-' :
+      selectedOperation === multiply ? '×' :
+      selectedOperation === divide ? '÷' : ''
+    } ${secondValue} =`;
+    
+    updateDisplay(result);
+    previousValue = result;
+    currentInput = '';
+  } catch (err) {
+    handleError(err);
   }
 }
 
@@ -121,6 +148,7 @@ document.getElementById('keys').addEventListener('click', (event) => {
       case '*': chooseOperation(multiply); break;
       case '/': chooseOperation(divide); break;
       case 'SUCC': chooseOperation(succession); break;
+      case 'PRED': chooseOperation(predecession); break;
       case '=': calculate(); break;
     }
   }

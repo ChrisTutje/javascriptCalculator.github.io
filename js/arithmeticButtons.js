@@ -2,6 +2,10 @@ export function succession(x) {
   return x + 1;
 }
 
+export function predecession(x) {
+  return x - 1;
+}
+
 export function add(x, y) {
   return x + y;
 }
