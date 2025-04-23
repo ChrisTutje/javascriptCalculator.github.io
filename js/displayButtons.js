@@ -1,4 +1,4 @@
-import { add, subtract, multiply, divide } from './arithmeticButtons.js';
+import { succession, add, subtract, multiply, divide } from './arithmeticButtons.js';
 
 let currentInput = '';
 let previousValue = null;
@@ -12,14 +12,23 @@ function updateDisplay(value) {
 }
 
 function updateOperationDisplay() {
-  if (previousValue !== null && selectedOperation) {
+  if (selectedOperation) {
     const operator = 
+      selectedOperation === succession ? 'SUCC' :
       selectedOperation === add ? '+' :
       selectedOperation === subtract ? '-' :
       selectedOperation === multiply ? '×' :
       selectedOperation === divide ? '÷' : '';
     
-    operationDisplay.textContent = `${previousValue} ${operator}`;
+    if (selectedOperation.length === 1) {
+      const displayValue = previousValue !== null ? previousValue : currentInput || '0';
+      operationDisplay.textContent = `${operator}(${displayValue})`;
+    } 
+    else {
+      if (previousValue !== null) {
+        operationDisplay.textContent = `${previousValue} ${operator}`;
+      }
+    }
   } else {
     operationDisplay.textContent = '';
   }
@@ -55,16 +64,28 @@ function chooseOperation(opFunc) {
 }
 
 function calculate() {
-  const secondValue = parseFloat(currentInput);
-  if (selectedOperation && !isNaN(previousValue) && !isNaN(secondValue)) {
+  if (selectedOperation) {
     try {
-      const result = selectedOperation(previousValue, secondValue);
-      operationDisplay.textContent = `${previousValue} ${
-        selectedOperation === add ? '+' :
-        selectedOperation === subtract ? '-' :
-        selectedOperation === multiply ? '×' :
-        '÷'
-      } ${secondValue} =`;
+      let result;
+      const currentValue = parseFloat(currentInput);
+      
+      // Handle unary operations (like succession)
+      if (selectedOperation.length === 1) {
+        result = selectedOperation(previousValue || currentValue);
+        operationDisplay.textContent = `${selectedOperation === succession ? 'SUCC' : ''}(${previousValue || currentValue}) =`;
+      } 
+      // Handle binary operations
+      else {
+        if (isNaN(previousValue)) return;
+        result = selectedOperation(previousValue, currentValue);
+        operationDisplay.textContent = `${previousValue} ${
+          selectedOperation === add ? '+' :
+          selectedOperation === subtract ? '-' :
+          selectedOperation === multiply ? '×' :
+          '÷'
+        } ${currentValue} =`;
+      }
+      
       updateDisplay(result);
       currentInput = result.toString();
       previousValue = null;
@@ -99,6 +120,7 @@ document.getElementById('keys').addEventListener('click', (event) => {
       case '-': chooseOperation(subtract); break;
       case '*': chooseOperation(multiply); break;
       case '/': chooseOperation(divide); break;
+      case 'SUCC': chooseOperation(succession); break;
       case '=': calculate(); break;
     }
   }
