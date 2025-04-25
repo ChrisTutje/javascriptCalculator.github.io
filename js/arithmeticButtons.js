@@ -119,3 +119,35 @@ export function tangent(x) {
   if (!Number.isFinite(result)) throw new Error("Undefined tangent");
   return result;
 }
+
+export function logarithm(x) {
+  if (x <= 0) throw new Error("Input must be positive");
+  return Math.log10(x);
+}
+
+export function naturalLogarithm(x) {
+  if (x <= 0) throw new Error("Input must be positive");
+  return Math.log(x);
+}
+
+export function double(x) {
+  return x * 2;
+}
+
+export function triple(x) {
+  return x * 3;
+}
+
+export function tetration(a, b) {
+  if (!Number.isInteger(b) || b < 0) throw new Error("Tetration power must be non-negative integer");
+  if (b > 5) throw new Error("Power too large (max 5)");
+  if (a > 10 && b > 3) throw new Error("Result would be too large");
+
+  let result = 1;
+  for (let i = 0; i < b; i++) {
+    result = Math.pow(a, result);
+    if (!Number.isFinite(result)) throw new Error("Overflow");
+    if (result > 1e100) throw new Error("Result too large");
+  }
+  return result;
+}
