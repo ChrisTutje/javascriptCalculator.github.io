@@ -151,3 +151,18 @@ export function tetration(a, b) {
   }
   return result;
 }
+
+export function superLog(x) {
+  if (x <= 1) throw new Error("Input must be > 1");
+  
+  let count = 0;
+  let current = x;
+  
+  while (current > 1.0001) {  
+    current = Math.log(current);
+    count++;
+    if (count > 100) break;  
+  }
+  
+  return count + (current - 1);  
+}

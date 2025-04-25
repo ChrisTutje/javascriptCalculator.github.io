@@ -1,5 +1,5 @@
 import { E, PI, TAU, PHI } from './constants.js';
-import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration  } from './arithmeticButtons.js'; 
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -39,7 +39,8 @@ function updateOperationDisplay() { //UpdateOperationDisplay()
     selectedOperation === naturalLogarithm ? 'ln' :
     selectedOperation === double ? 'double' : 
     selectedOperation === triple ? 'triple' : 
-    selectedOperation === tetration ? '↑↑' : '' ;
+    selectedOperation === tetration ? '↑↑' : 
+    selectedOperation === superLog ? 'slog' : '' ;
     
     
     if (selectedOperation.length === 1) {
@@ -160,8 +161,8 @@ function calculate() {  //Calculate()
       selectedOperation === floorDivide ? '//' :
       selectedOperation === modulo ? '%' : 
       selectedOperation === sine ? 'sin' :
-  selectedOperation === cosine ? 'cos' :
-  selectedOperation === tangent ? 'tan' : ''
+      selectedOperation === cosine ? 'cos' :
+      selectedOperation === tangent ? 'tan' : ''
     } ${secondValue} =`;
     
     updateDisplay(result);
@@ -224,6 +225,7 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case '×2': chooseOperation(double); break;
       case '×3': chooseOperation(triple); break;
       case '↑↑': chooseOperation(tetration); break;
+      case 'slog': chooseOperation(superLog); break;
       case '=': calculate(); break;
     }
   }
