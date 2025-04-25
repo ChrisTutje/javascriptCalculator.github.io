@@ -1,5 +1,5 @@
-import { E, PI, TAU, PHI } from './constants.js';
-import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog  } from './arithmeticButtons.js'; 
+import { E, PI, TAU, PHI, SQRT2, THETA } from './constants.js';
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog, primeFactorization, halve, quarter  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -40,7 +40,10 @@ function updateOperationDisplay() { //UpdateOperationDisplay()
     selectedOperation === double ? 'double' : 
     selectedOperation === triple ? 'triple' : 
     selectedOperation === tetration ? '↑↑' : 
-    selectedOperation === superLog ? 'slog' : '' ;
+    selectedOperation === superLog ? 'slog' : 
+    selectedOperation === primeFactorization ? 'PF' : 
+    selectedOperation === halve ? '½' : 
+    selectedOperation === quarter ? '¼' : '' ;
     
     
     if (selectedOperation.length === 1) {
@@ -126,7 +129,10 @@ function calculate() {  //Calculate()
         selectedOperation === cosine ? 'cos' :
         selectedOperation === tangent ? 'tan' : 
         selectedOperation === double ? '×2' : 
-        selectedOperation === triple ? '×3' : ''
+        selectedOperation === triple ? '×3' : 
+        selectedOperation === primeFactorization ? 'PF' :
+        selectedOperation === halve ? '½' :
+        selectedOperation === quarter ? '¼' : ''
       }(${inputValue}) =`;
       updateDisplay(result);
       currentInput = result.toString();
@@ -194,6 +200,8 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case 'π': inputConstant(PI); break;
       case 'τ': inputConstant(TAU); break;
       case 'φ': inputConstant(PHI); break;
+      case '√2': inputConstant(SQRT2); break;
+      case 'θ': inputConstant(THETA); break;
     }
   }
   else if (button.classList.contains('operation-btn')) {
@@ -226,6 +234,9 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case '×3': chooseOperation(triple); break;
       case '↑↑': chooseOperation(tetration); break;
       case 'slog': chooseOperation(superLog); break;
+      case 'PF': chooseOperation(primeFactorization); break;
+      case '½': chooseOperation(halve); break;
+      case '¼': chooseOperation(quarter); break;
       case '=': calculate(); break;
     }
   }

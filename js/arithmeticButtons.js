@@ -166,3 +166,34 @@ export function superLog(x) {
   
   return count + (current - 1);  
 }
+
+export function primeFactorization(n) {
+  if (!Number.isInteger(n) || n <= 1) throw new Error("Input must be integer > 1");
+  
+  const factors = [];
+  let remaining = n;
+
+  while (remaining % 2 === 0) {
+    factors.push(2);
+    remaining /= 2;
+  }
+
+  for (let i = 3; i <= Math.sqrt(remaining); i += 2) {
+    while (remaining % i === 0) {
+      factors.push(i);
+      remaining /= i;
+    }
+  }
+
+  if (remaining > 2) factors.push(remaining);
+  
+  return factors.join(" × "); 
+}
+
+export function halve(x) {
+  return x / 2;
+}
+
+export function quarter(x) {
+  return x / 4;
+}
