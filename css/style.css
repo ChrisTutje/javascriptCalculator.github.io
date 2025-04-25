@@ -74,6 +74,49 @@ button {
   }
 }
 
+.navigation-btn {
+  grid-column: span 1;
+  color: var(--cyan);
+  background-color: var(--slate);
+}
+
+.display-btn {
+  grid-column: span 1;
+  color: var(--red);
+  background-color: var(--slate);
+}
+
+.digit-btn {
+  grid-column: span 1;
+  color: var(--black);
+  background-color: var(--silver);
+}
+
+.letter-btn {
+  grid-column: span 1;
+  color: var(--green);
+  background-color: var(--silver);
+}
+
+.constant-btn {
+  grid-column: span 1;
+  color: var(--magenta);
+  background-color: var(--silver);
+}
+
+.operation-btn {
+  grid-column: span 1;
+  color: var(--orange);
+  background-color: var(--grey);
+}
+
+.formula-btn {
+  grid-column: span 1;
+  color: var(--blue);
+  background-color: var(--grey);
+}
+
+
 #calculator {
   font-family: var(font-family);
   background-color: var(--black);
@@ -116,19 +159,6 @@ button {
   color: var(--auto);
 }
 
-/* #display-window {
-  width: 100%;
-  min-width: 240px;
-  padding: var(--spacing-unit);
-  font-size: var(--font-size);
-  text-align: left;
-  border: none;
-  background-color: var(--white);
-  color: var(--black);
-  white-space: nowrap;
-  overflow-x: auto;
-} */
-
 #keys {
   display: grid;
   grid-template-columns: repeat(7, minmax(60px, 1fr));
@@ -136,15 +166,6 @@ button {
   padding: var(--button-padding);
   min-width: 420px;
   max-width: 700px;
-}
-
-.operation-btn {
-  color: var(--khaki);
-}
-
-.display-btn {
-  grid-column: span 1;
-  color: var(--brick);
 }
 
 @media (max-width: 48em) {
