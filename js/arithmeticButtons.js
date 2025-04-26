@@ -190,6 +190,21 @@ export function primeFactorization(n) {
   return factors.join(" × "); 
 }
 
+export function calculateTip(amount) {
+  const numericAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+  
+  if (isNaN(numericAmount)) throw new Error("Invalid input");
+  if (numericAmount < 0) throw new Error("Negative amount");
+  
+  const preciseAmount = parseFloat(numericAmount.toFixed(2));
+  
+  const tip = preciseAmount * 0.15;
+  
+  const roundedTip = Math.ceil(tip);
+  
+  return parseFloat(roundedTip.toFixed(2));
+}
+
 export function halve(x) {
   return x / 2;
 }

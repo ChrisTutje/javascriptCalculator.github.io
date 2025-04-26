@@ -1,5 +1,5 @@
 import { E, PI, TAU, PHI, SQRT2, THETA } from './constants.js';
-import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog, primeFactorization, halve, quarter  } from './arithmeticButtons.js'; 
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog, primeFactorization, calculateTip, halve, quarter  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -42,6 +42,7 @@ function updateOperationDisplay() { //UpdateOperationDisplay()
     selectedOperation === tetration ? '↑↑' : 
     selectedOperation === superLog ? 'slog' : 
     selectedOperation === primeFactorization ? 'PF' : 
+    selectedOperation === calculateTip ? 'tip' : 
     selectedOperation === halve ? '½' : 
     selectedOperation === quarter ? '¼' : '' ;
     
@@ -235,6 +236,7 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case '↑↑': chooseOperation(tetration); break;
       case 'slog': chooseOperation(superLog); break;
       case 'PF': chooseOperation(primeFactorization); break;
+      case '15%': chooseOperation(calculateTip); break;
       case '½': chooseOperation(halve); break;
       case '¼': chooseOperation(quarter); break;
       case '=': calculate(); break;
