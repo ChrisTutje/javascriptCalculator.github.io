@@ -1,5 +1,5 @@
 import { E, PI, TAU, PHI, SQRT2, THETA } from './constants.js';
-import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog, primeFactorization, calculateTip, halve, quarter  } from './arithmeticButtons.js'; 
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog, primeFactorization, calculateTip, halve, quarter, round, floor, ceiling, preciseRound  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -44,7 +44,11 @@ function updateOperationDisplay() { //UpdateOperationDisplay()
     selectedOperation === primeFactorization ? 'PF' : 
     selectedOperation === calculateTip ? 'tip' : 
     selectedOperation === halve ? '½' : 
-    selectedOperation === quarter ? '¼' : '' ;
+    selectedOperation === quarter ? '¼' : 
+    selectedOperation === round ? 'rnd' : 
+    selectedOperation === ceiling ? 'ceil' : 
+    selectedOperation === floor ? 'flr' : 
+    selectedOperation === preciseRound ? 'pre' : '' ;
     
     
     if (selectedOperation.length === 1) {
@@ -133,7 +137,11 @@ function calculate() {  //Calculate()
         selectedOperation === triple ? '×3' : 
         selectedOperation === primeFactorization ? 'PF' :
         selectedOperation === halve ? '½' :
-        selectedOperation === quarter ? '¼' : ''
+        selectedOperation === quarter ? '¼' : 
+        selectedOperation === round ? '⌊x⌉' : 
+        selectedOperation === ceiling ? '⌈x⌉' : 
+        selectedOperation === floor ? '⌊x⌋' : 
+        selectedOperation === preciseRound ? 'pre' : ''
       }(${inputValue}) =`;
       updateDisplay(result);
       currentInput = result.toString();
@@ -239,6 +247,10 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case '15%': chooseOperation(calculateTip); break;
       case '½': chooseOperation(halve); break;
       case '¼': chooseOperation(quarter); break;
+      case '⌊x⌉': chooseOperation(round); break;
+      case '⌈x⌉': chooseOperation(ceiling); break;
+      case '⌊x⌋': chooseOperation(floor); break;
+      case 'pre': chooseOperation(preciseRound); break;
       case '=': calculate(); break;
     }
   }

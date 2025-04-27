@@ -212,3 +212,20 @@ export function halve(x) {
 export function quarter(x) {
   return x / 4;
 }
+
+export function ceiling(x) {
+  return Math.ceil(x);
+}
+
+export function floor(x) {
+  return Math.floor(x);
+}
+
+export function round(x) {
+  return Math.round(x);
+}
+
+export function preciseRound(x, precision = 0) {
+  const factor = Math.pow(10, precision);
+  return Math.round(x * factor) / factor;
+}
