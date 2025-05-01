@@ -116,6 +116,12 @@ button {
   background-color: var(--grey);
 }
 
+.disabled-btn {
+  grid-column: span 1;
+  color: var(--grey);
+  background-color: var(--white);
+}
+
 
 #calculator {
   font-family: var(font-family);

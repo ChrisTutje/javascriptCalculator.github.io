@@ -21,7 +21,7 @@
         <button onclick="" title="Delete" class="display-btn">⌫</button>
         <button onclick="clearDisplay()" title="Clear" class="display-btn">C</button>
         <button onclick="calculate()" title="Calculate" class="operation-btn">=</button>
-        <button onclick="" title="" class="blank-btn"></button>
+        <button onclick="" title="approximate" class="disabled-btn"></button>
         <button onclick="" title="" class="blank-btn"></button>
 
         <button onclick="inputDigit('7')" title="Seven" class="digit-btn">7</button>
@@ -29,7 +29,7 @@
         <button onclick="inputDigit('9')" title="Nine" class="digit-btn">9</button>
         <button onclick="chooseOperation(add)" title="Addition" class="operation-btn">+</button>
         <button onclick="chooseOperation(succession)" title="Succession" class="operation-btn">SUCC</button>
-        <button onclick="" title="Increment" class="operation-btn">+=</button>
+        <button onclick="" title="Increment" class="disabled-btn">+=</button>
         <button onclick="chooseOperation(permutate)" title="Permutate" class="operation-btn">+!</button>
 
         <button onclick="inputDigit('4')" title="Four" class="digit-btn">4</button>
@@ -37,7 +37,7 @@
         <button onclick="inputDigit('6')" title="Six" class="digit-btn">6</button>
         <button onclick="chooseOperation(subtract)" title="Subtraction" class="operation-btn">-</button>
         <button onclick="chooseOperation(predecession)" title="Predecession" class="operation-btn">PRED</button>
-        <button onclick="" title="Decrement" class="operation-btn">-=</button>
+        <button onclick="" title="Decrement" class="disabled-btn">-=</button>
         <button onclick="chooseOperation(subFactorial)" title="Subfactorial" class="operation-btn">-!</button>
 
         <button onclick="inputDigit('1')" title="One" class="digit-btn">1</button>
@@ -45,7 +45,7 @@
         <button onclick="inputDigit('3')" title="Three" class="digit-btn">3</button>
         <button onclick="chooseOperation(multiply)" title="Multiplication" class="operation-btn">*</button>
         <button onclick="" title="Floor Division" class="operation-btn">//</button>
-        <button onclick="" title="Augment" class="operation-btn">*=</button>
+        <button onclick="" title="Augment" class="disabled-btn">*=</button>
         <button onclick="chooseOperation(factorial)" title="Factorial" class="operation-btn">!</button>
 
         <button onclick="inputDigit('0')" title="Zero" class="digit-btn">0</button>
@@ -53,7 +53,7 @@
         <button onclick="inputDigit('-')" title="Negative" class="">(-)</button>
         <button onclick="chooseOperation(divide)" title="Natural Division" class="operation-btn">/</button>
         <button onclick="chooseOperation(modulo)" title="Modular Division" class="operation-btn">%</button>
-        <button onclick="" title="Diminish" class="operation-btn">/=</button>
+        <button onclick="" title="Diminish" class="disabled-btn">/=</button>
         <button onclick="chooseOperation(harmonicFactorial)" title="Harmonic Factorial" class="operation-btn">/!</button>
 
         <button onclick="chooseOperation(sine)" title="Sine (radians)" class="operation-btn">sin</button>
@@ -80,7 +80,7 @@
         <button onclick="" title="Double" class="operation-btn">×2</button>
         <button onclick="" title="Triple" class="operation-btn">×3</button>
 
-        <button onclick="" title="Imaginary Number" class="constant-btn">i</button>
+        <button onclick="" title="Imaginary Number" class="disabled-btn">i</button>
         <button onclick="inputConstant(SQRT2)" title="Square Root of Two" class="constant-btn">√2</button>
         <button onclick="inputConstant(THETA)" title="Theta" class="constant-btn">θ</button>
         <button onclick="chooseOperation(primeFactorization)" title="Prime Factorization" class="operation-btn">PF</button>
@@ -88,12 +88,12 @@
         <button onclick="chooseOperation(halve)" title="Halve" class="operation-btn">½</button>
         <button onclick="chooseOperation(quarter)" title="Quarter" class="operation-btn">¼</button>
 
-        <button onclick="" title="Underflow Value" class="constant-btn">UF</button>
-        <button onclick="" title="Overflow Value" class="constant-btn">OF</button>
-        <button onclick="" title="Infinity" class="constant-btn">∞</button>
+        <button onclick="inputConstant(UNDERFLOW)" title="Underflow Value" class="constant-btn">UF</button>
+        <button onclick="inputConstant(OVERFLOW)" title="Overflow Value" class="constant-btn">OF</button>
+        <button onclick="inputConstant(INFINITY)" title="Infinity" class="disabled-btn">∞</button>
         <button onclick="chooseOperation(round)" title="Round" class="operation-btn">⌊x⌉</button>
         <button onclick="chooseOperation(floor)" title="Floor" class="operation-btn">⌊x⌋</button>
-        <button onclick="chooseOperation(ceiling)" title="Ceiling" class="operation-btn"> ⌈x⌉</button>
+        <button onclick="chooseOperation(ceiling)" title="Ceiling" class="disabled-btn"> ⌈x⌉</button>
         <button onclick="chooseOperation(preciseRound)" title="Precision" class="operation-btn">pre</button>
 
         <!-- <button onclick="" title="Speed of Light" class="constant-btn">C</button>

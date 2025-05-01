@@ -225,7 +225,7 @@ export function round(x) {
   return Math.round(x);
 }
 
-export function preciseRound(x, precision = 0) {
-  const factor = Math.pow(10, precision);
-  return Math.round(x * factor) / factor;
-}
+// export function preciseRound(x, precision = 0) {
+//   const factor = Math.pow(10, precision);
+//   return Math.round(x * factor) / factor;
+// }
