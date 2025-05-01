@@ -1,5 +1,5 @@
-import { E, PI, TAU, PHI, SQRT2, THETA, UNDERFLOW, OVERFLOW, INFINITY } from './constants.js';
-import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog, primeFactorization, calculateTip, halve, quarter, round, floor, ceiling  } from './arithmeticButtons.js'; 
+import { E, PI, TAU, PHI, SQRT2, THETA, UNDERFLOW, OVERFLOW, INFINITY, SPEED_OF_LIGHT } from './constants.js';
+import { succession, predecession, add, subtract, multiply, divide,  floorDivide, modulo, factorial, permutation, subfactorial, harmonicFactorial, exponent, reciprocal, square, cube, squareRoot, cubeRoot, root, sine, cosine, tangent, logarithm, naturalLogarithm, double, triple, tetration, superLog, primeFactorization, calculateTip, halve, quarter, round, floor, ceiling, absoluteValue  } from './arithmeticButtons.js'; 
 
 let currentInput = '';
 let previousValue = null;
@@ -47,7 +47,8 @@ function updateOperationDisplay() { //UpdateOperationDisplay()
     selectedOperation === quarter ? '¼' : 
     selectedOperation === round ? 'rnd' : 
     selectedOperation === floor ? 'flr' : 
-    selectedOperation === ceiling ? 'ceil' : '' ;
+    selectedOperation === ceiling ? 'ceil' : 
+    selectedOperation === absoluteValue ? 'abs' : '' ;
     
     
     if (selectedOperation.length === 1) {
@@ -139,7 +140,8 @@ function calculate() {  //Calculate()
         selectedOperation === quarter ? '¼' : 
         selectedOperation === round ? '⌊x⌉' : 
         selectedOperation === floor ? '⌊x⌋' : 
-        selectedOperation === ceiling ? '⌈x⌉' : ''
+        selectedOperation === ceiling ? '⌈x⌉' : 
+        selectedOperation === absoluteValue ? '|x|' : ''
       }(${inputValue}) =`;
       updateDisplay(result);
       currentInput = result.toString();
@@ -212,6 +214,7 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case 'OF': inputConstant(OVERFLOW); break;
       case 'UF': inputConstant(UNDERFLOW); break;
       case 'OF': inputConstant(INFINITY); break;
+      case 'C': inputConstant(SPEED_OF_LIGHT); break;
     }
   }
   else if (button.classList.contains('operation-btn')) {
@@ -251,6 +254,7 @@ document.getElementById('keys').addEventListener('click', (event) => { //Click H
       case '⌊x⌉': chooseOperation(round); break;
       case '⌊x⌋': chooseOperation(floor); break;
       case '⌈x⌉': chooseOperation(ceiling); break;
+      case '|x|': chooseOperation(absoluteValue); break;
       case '=': calculate(); break;
     }
   }

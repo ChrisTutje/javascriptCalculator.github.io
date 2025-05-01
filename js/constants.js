@@ -9,3 +9,5 @@ export const UNDERFLOW = Number.MIN_VALUE;
 export const MAX_SAFE_INT = Number.MAX_SAFE_INTEGER;
 export const MIN_SAFE_INT = Number.MIN_SAFE_INTEGER;
 export const INFINITY = Infinity;
+export const SPEED_OF_LIGHT = 299792458; 
+export const PLANCK = 6.62607015e-34;    

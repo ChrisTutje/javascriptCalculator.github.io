@@ -229,3 +229,11 @@ export function round(x) {
 //   const factor = Math.pow(10, precision);
 //   return Math.round(x * factor) / factor;
 // }
+
+export function absoluteValue(x) {
+  return Math.abs(x);
+}
+
+// export function plusMinus(x) {
+//   return -x;
+// }
